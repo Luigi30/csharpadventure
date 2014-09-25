@@ -20,7 +20,7 @@ namespace TextAdventure
         private String _singularname;
 
         private bool _isOpen;
-        private bool _isScenery;
+        private bool _isScenery; //appears on a separate line when Looking at a room?
 
         public String Name
         {
@@ -120,7 +120,7 @@ namespace TextAdventure
             }
         }
 
-        #region Verb Implementations
+        #region Default verb implementations
 
         public String Take(INoun actor, String verb_preposition = null)
         {
