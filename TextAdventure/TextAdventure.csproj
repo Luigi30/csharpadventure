@@ -111,7 +111,7 @@
     <Compile Include="TextAdventureViewModel.cs" />
     <Compile Include="Interfaces\INoun.cs" />
     <Compile Include="Interfaces\IVerb.cs" />
-    <Compile Include="VerbDefinitions\VerbDefinitions.cs" />
+    <Compile Include="Verb.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
