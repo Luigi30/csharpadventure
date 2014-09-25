@@ -13,7 +13,7 @@ namespace TextAdventure.Items
             Name = "BUTT";
             Description = "A butt.";
             Location = location;
-            Has = new List<Noun>();
+            Contents = new List<Noun>();
             SingularName = DefiniteName;
         }
 

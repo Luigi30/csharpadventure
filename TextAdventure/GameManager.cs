@@ -65,11 +65,11 @@ namespace TextAdventure
                 }
                 else if (result.ParsedIndirectObject == null)
                 {
-                    return result.ParsedNoun.Perform(result.ParsedVerb, PC, result.ParsedVerbPreposition);
+                    return WorldItems.Find(x => x.Name == result.ParsedNoun.Name).Perform(result.ParsedVerb, PC, result.ParsedVerbPreposition);
                 }
                 else
                 {
-                    return result.ParsedNoun.Perform(result.ParsedVerb, PC, result.ParsedIndirectObject, result.ParsedVerbPreposition, result.ParsedIndirectObjectPreposition);
+                    return WorldItems.Find(x => x.Name == result.ParsedNoun.Name).Perform(result.ParsedVerb, PC, result.ParsedIndirectObject, result.ParsedVerbPreposition, result.ParsedIndirectObjectPreposition);
                 }
             }
         }

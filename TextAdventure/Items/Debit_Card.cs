@@ -18,8 +18,8 @@ namespace TextAdventure.Items
 
         public new String Take(INoun taker, String verb_preposition)
         {
-            GameManager.Instance.WorldItems.Find(x => x.Name == this.Name).Location = null;
-            GameManager.Instance.PC.Has.Add(this);
+            Location = null;
+            taker.Contents.Add(this);
             return "Taken.\r\n";
         }
 

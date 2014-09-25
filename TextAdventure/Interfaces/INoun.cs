@@ -19,7 +19,7 @@ namespace TextAdventure
 
         String SingularName { get; set; }
 
-        List<Noun> Has { get; set; }
+        List<Noun> Contents { get; set; }
 
         bool IsScenery { get; set; }
 

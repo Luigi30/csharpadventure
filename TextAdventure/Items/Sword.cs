@@ -18,19 +18,15 @@ namespace TextAdventure.Items
 
         public new String Take(INoun actor, String verb_preposition)
         {
-            if (GameManager.Instance.WorldItems.Find(x => x.Name == "SWORD").Location == GameManager.Instance.PC.Location)
+            if (Location == actor.Location)
             {
-                GameManager.Instance.WorldItems.Find(x => x.Name == "SWORD").Location = null;
-                GameManager.Instance.PC.Has.Add(this);
+                Location = null;
+                actor.Contents.Add(this);
                 return "Taken.\r\n";
-            }
-            else
-            {
+            } else {
                 return String.Format("There's no {0} here.\r\n", Name.ToLower());
             }
 
         }
-
-
     }
 }

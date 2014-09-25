@@ -71,7 +71,7 @@ namespace TextAdventure
             Console.WriteLine("Command!");
             OutputText += ">" + InputText + "\r\n";
 
-            OutputText += GameManager.Process(InputText);
+            OutputText += GameManager.Instance.Process(InputText);
 
             InputText = "";
         }

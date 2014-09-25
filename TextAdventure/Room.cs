@@ -47,11 +47,7 @@ namespace TextAdventure
 
         public void AddReciprocalExit(String direction, Room target_room)
         {
-            var rooms = GameManager.Instance.Rooms;
-
-            var this_room = rooms.Find(x => x.Name == Name);
-
-            this_room.Exits[direction] = target_room.Id;
+            Exits[direction] = target_room.Id;
 
             switch(direction){
                 case Direction.East:
@@ -71,10 +67,7 @@ namespace TextAdventure
 
         public void AddDoorToExit(String direction, INoun door)
         {
-            var rooms = GameManager.Instance.Rooms;
-            var this_room = rooms.Find(x => x.Name == Name);
-
-            this_room.Doors[direction] = (Door)door;
+            Doors[direction] = (Door)door;
             Console.WriteLine("Added door {0} to room {1} in direction {2}", door.Name, Name, direction);
         }
 
@@ -89,7 +82,7 @@ namespace TextAdventure
 
             output += String.Format("{0}\r\n{1}\r\n", Name, Description);
 
-            var stuff = GameManager.Instance.WorldItems.FindAll(x => x.Location == GameManager.Instance.PC.Location).FindAll(x => x.IsScenery == false);
+            var stuff = GameManager.Instance.WorldItems.FindAll(x => x.Location != null).FindAll(x => x.Location.Id == actor.Location.Id).FindAll(x => x.IsScenery == false);
             var number_of_items = stuff.Count;
 
             if (number_of_items > 0)

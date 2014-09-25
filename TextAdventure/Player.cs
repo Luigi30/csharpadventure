@@ -12,26 +12,26 @@ namespace TextAdventure
         public Player(Room location)
         {
             Location = location;
-            Has = new List<Noun>();
+            Contents = new List<Noun>();
         }
 
         public new String Look(INoun actor, String verb_preposition = null)
         {
             //look at the current location.
-            return Location.Look(this);
+            return Location.Look(actor);
         }
 
         public String Inventory(INoun actor, String verb_preposition = null)
         {
             string output = "You are carrying:\r\n";
 
-            if (Has.Count == 0)
+            if (Contents.Count == 0)
             {
                 output += "\tnothing";
             }
             else
             {
-                foreach (var item in Has)
+                foreach (var item in Contents)
                 {
                     output += String.Format("\t{0}\r\n", item.IndefiniteName);
                 }
@@ -66,26 +66,22 @@ namespace TextAdventure
 
         public String East(INoun actor, String verb_preposition = null)
         {
-            var global_copy = GameManager.Instance.PC;
-            return global_copy.Go(Room.Direction.East);
+            return Go(Room.Direction.East);
         }
 
         public String West(INoun actor, String verb_preposition = null)
         {
-            var global_copy = GameManager.Instance.PC;
-            return global_copy.Go(Room.Direction.West);
+            return Go(Room.Direction.West);
         }
 
         public String North(INoun actor, String verb_preposition = null)
         {
-            var global_copy = GameManager.Instance.PC;
-            return global_copy.Go(Room.Direction.North);
+            return Go(Room.Direction.North);
         }
 
         public String South(INoun actor, String verb_preposition = null)
         {
-            var global_copy = GameManager.Instance.PC;
-            return global_copy.Go(Room.Direction.South);
+            return Go(Room.Direction.South);
         }
     }
 }
