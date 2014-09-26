@@ -21,7 +21,7 @@ namespace TextAdventure
 
         List<Noun> Contents { get; set; }
 
-        bool IsScenery { get; set; }
+        bool IsScenery { get; set; } //if this noun is present in a room, is it printed with the description?
 
         #region possible properties
         bool IsOpen { get; set; }

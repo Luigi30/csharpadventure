@@ -9,7 +9,7 @@ namespace TextAdventure
 {
     class Player : Noun
     {
-        public Player(Room location)
+        public Player(Room location = null)
         {
             Location = location;
             Contents = new List<Noun>();
@@ -44,7 +44,7 @@ namespace TextAdventure
         {
             if (Location.Exits.ContainsKey(direction))
             {
-                if (Location.ExitHasOpenDoor(direction))
+                if (!Location.Doors.ContainsKey(direction) || Location.ExitHasOpenDoor(direction))
                 {
                     var rooms = GameManager.Instance.Rooms;
                     var other_room = rooms.Find(x => x.Id == Location.Exits[direction]);

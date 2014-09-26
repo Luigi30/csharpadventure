@@ -39,7 +39,7 @@ namespace TextAdventure
             ValidVerbs = new ObservableCollection<IVerb>(GameManager.ValidVerbs.OrderBy(x => x.Name).ToList());
             LocalItems = new ObservableCollection<INoun>(GameManager.WorldItems.OrderBy(x => x.Name).ToList());
 
-            OutputText += GameManager.StartGame();
+            OutputText += GameManager.Instance.StartGame();
         }
 
         public String OutputText

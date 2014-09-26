@@ -33,10 +33,9 @@ namespace TextAdventure
             Rooms = InitRooms();
             ValidVerbs = InitVerbs();
             WorldItems = InitNouns();
+            PC = new Player();
 
             Parser = new SentenceParser(VerbDictionary, WorldItems);
-
-            PC = new Player(Rooms[0]);
         }
 
         Dictionary<String, IVerb> VerbDictionary = new Dictionary<String, IVerb>();
@@ -44,7 +43,7 @@ namespace TextAdventure
         public String StartGame()
         {
             CreateRoomExits();
-
+            PC.Location = Rooms[0];
             return PC.Perform(VerbDictionary["LOOK"], PC);
         }
 
